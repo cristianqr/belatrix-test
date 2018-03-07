@@ -1,1 +1,63 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body{
+  color: #212529;
+}
+html, body {
+  height: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row div{
+  flex: 1;
+}
+
+.row div:not(:last-child){
+  margin-right: 50px;
+}
+
+input {
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 12px 12px 12px 25px;
+  width: 100%;
+  font-size: 1.3em;
+}
+
+.btn{
+  background-color: #A3562A;
+  padding: 12px;
+  border: none;
+  color: #FFF;
+  width: 40%;
+  font-size: 1.3em;
+  border-radius: 3px;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon > i {
+  position: absolute;
+  display: block;
+  transform: translate(0, -50%);
+  top: 50%;
+  pointer-events: none;
+  width: 25px;
+  text-align: center;
+  font-style: normal;
+  font-size: 1.7em;
+  font-weight: 500;
+}

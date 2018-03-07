@@ -1,0 +1,25 @@
+<div class="money-exchange-form">
+  <div>
+    <form novalidate [formGroup]="moneyExchangeForm" (ngSubmit)="getExchangeRate()">
+      <div class="row">
+        <div class="col">
+          <div class="input-icon">
+            <i>$</i>
+            <input type="text" formControlName="dollarAmount"  class="dollar" autofocus>
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-icon">
+            <i>€</i>
+            <input type="text" [value]="totalExchangeAmount" readonly>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center">
+          <button class="btn">CALCULATE</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

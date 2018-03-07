@@ -1,0 +1,40 @@
+.money-exchange-form {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  padding: 20px 15%;
+}
+
+.money-exchange-form>div {
+  width: 100%
+}
+
+.money-exchange-form .row{
+  display: flex;
+}
+
+.money-exchange-form .row .col{
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.money-exchange-form .row .col:not(:last-child){
+  margin-right: 50px;
+}
+
+@media (max-width: 860px) {
+  .btn {
+    width: 100%
+  }
+
+  .money-exchange-form {
+    padding: 20px 10px;
+  }
+  .money-exchange-form .row{
+    flex-direction: column;
+  }
+
+  .money-exchange-form .row .col:not(:last-child){
+    margin-right: 0px;
+  }
+}
