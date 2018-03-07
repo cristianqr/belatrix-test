@@ -32,9 +32,6 @@ export class MoneyExchangesComponent implements OnInit {
   }
 
   getExchangeRate () {
-    if (this.moneyExchangeForm.invalid) {
-      return;
-    }
     this.moneyExchangeService.getExchangeRate(this.base, this.symbols).subscribe(exchangeRate => {
       this.euroExchangeRate = +exchangeRate.rates[this.symbols];
     });

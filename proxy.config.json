@@ -1,6 +1,0 @@
-{
-  "/latest**": {
-    "target": "http://api.fixer.io",
-    "secure": false
-  }
-}
