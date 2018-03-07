@@ -17,14 +17,10 @@ html, body {
 .row {
   display: flex;
   flex-direction: row;
-}
 
-.row div{
-  flex: 1;
-}
-
-.row div:not(:last-child){
-  margin-right: 50px;
+  div {
+    flex: 1;
+  }
 }
 
 input {
@@ -43,21 +39,25 @@ input {
   width: 40%;
   font-size: 1.3em;
   border-radius: 3px;
+
+  &:disabled{
+    background-color: #BF6631;
+  }
 }
 
 .input-icon {
   position: relative;
-}
 
-.input-icon > i {
-  position: absolute;
-  display: block;
-  transform: translate(0, -50%);
-  top: 50%;
-  pointer-events: none;
-  width: 25px;
-  text-align: center;
-  font-style: normal;
-  font-size: 1.7em;
-  font-weight: 500;
+  &>i{
+    position: absolute;
+    display: block;
+    transform: translate(0, -50%);
+    top: 50%;
+    pointer-events: none;
+    width: 25px;
+    text-align: center;
+    font-style: normal;
+    font-size: 1.7em;
+    font-weight: 500;
+  }
 }

@@ -5,19 +5,19 @@
         <div class="col">
           <div class="input-icon">
             <i>$</i>
-            <input type="text" formControlName="dollarAmount"  class="dollar" autofocus>
+            <input type="text" formControlName="dollarAmount"  class="dollar" (input)="onInputDollarAmount()" (change)="onChangeDollarAmount()" autofocus>
           </div>
         </div>
         <div class="col">
           <div class="input-icon">
             <i>€</i>
-            <input type="text" [value]="totalExchangeAmount" readonly>
+            <input type="text" [value]="totalExchangeAmount | number:'1.2-4'" readonly>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="center">
-          <button class="btn">CALCULATE</button>
+          <button class="btn" [disabled]="moneyExchangeForm.invalid">CALCULATE</button>
         </div>
       </div>
     </form>

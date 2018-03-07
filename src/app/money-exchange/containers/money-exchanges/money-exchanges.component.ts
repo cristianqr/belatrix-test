@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MoneyExchangeService} from '../../services/money-exchange.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {CommonUtilsService} from '../../../core/services/common-utils.service';
+import {CommonValidators} from '../../../core/services/common-validators.service';
 
 @Component({
   selector: 'app-money-exchanges',
@@ -15,12 +17,13 @@ export class MoneyExchangesComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private moneyExchangeService: MoneyExchangeService
+    private moneyExchangeService: MoneyExchangeService,
+    private commonUtilsService: CommonUtilsService
   ) { }
 
   private makeForm () {
     this.moneyExchangeForm = this.fb.group({
-      dollarAmount: ['', Validators.required]
+      dollarAmount: ['', [Validators.required, CommonValidators.number]]
     });
   }
 
@@ -38,7 +41,14 @@ export class MoneyExchangesComponent implements OnInit {
   }
 
   get totalExchangeAmount() {
-    return (this.euroExchangeRate * +this.moneyExchangeForm.get('dollarAmount').value).toFixed(4).toLocaleString();
+    return this.euroExchangeRate * this.commonUtilsService.convertStringToNumber(this.moneyExchangeForm.get('dollarAmount').value);
   }
 
+  onInputDollarAmount () {
+    this.euroExchangeRate = 0;
+  }
+
+  onChangeDollarAmount () {
+    this.moneyExchangeForm.get('dollarAmount').patchValue(this.commonUtilsService.formatNumber(this.moneyExchangeForm.get('dollarAmount').value));
+  }
 }
